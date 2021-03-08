@@ -40,7 +40,7 @@
 			"Princess":"Mulan",
 			"Budget":"$90 million",
 			"BoxOffice":"$304.3 million",
-			"Image":"mulan.jpg"
+			"Image":"Mulan.jpg"
 			},
 			{
 			"Film":7,
