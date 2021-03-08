@@ -50,8 +50,12 @@
 					if(cat == "box") { // box office
 						url = "data/disney-box-office.js";
 					}
-					else { // year
+					else if(cat== "year") { // year
 						url = "data/disney-year.js"; 
+					}else if(cat== "princess") { // year
+						url = "data/disney-princess.js"; 
+					}else  { 
+						url = "data/disney-budget.js"; 
 					}
 				}
 				return url;
@@ -121,6 +125,7 @@
 						<b>Box Office</b>: ${item.BoxOffice}
 						<br/>
 						<b>Writers</b>: ${item.Writers}
+                                                <b>Budget</b>: ${item.Budget}
 						<div class = "pic"><img src="images/${item.Image}"/></div>
 					</div>`;
 					 
@@ -135,6 +140,8 @@
 		<h1>Disney Movies Web Service</h1>
 		<a href="year" class="category">Disney Films By Year</a><br />
 		<a href="box" class="category">Disney Films By International Box Office Totals</a>
+		<a href="princess" class="category">Disney Films By their Princess</a>
+		<a href="budget" class="category">Disney Films By their Budget</a>
 		<h3 id="disney">Disney movies</h3>
 		<div id="films">
 			Results go here
