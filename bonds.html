@@ -52,6 +52,11 @@
 					dataType: "json",
 					url: url,
 					success: disneyJSON
+					
+					error: function(xhr, status, error){
+					var errorMessage = xhr.status + ': ' + xhr.statusText
+					alert('Error - ' + errorMessage);
+					}
 				});
 			}
 
@@ -88,7 +93,9 @@
 						<div class = "pic"><img src="images/${item.Image}"/></div>
 					</div>`;
 
-					$("#films").append(text);
+					 alert(text);
+					
+                                         $(<div></div>).html(text).appendTo("#disney");
 				});
 			}
 		</script>
