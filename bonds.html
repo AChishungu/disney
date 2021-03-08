@@ -1,40 +1,10 @@
 <html>
 	<head>
-		<title>The 10 Best Disney films </title>
+		<title>Bond Web Service Demo</title>
 		<style>
 			body {font-family:georgia;}
-
-			#films {
-				max-width:600px;
-				margin:5px;
-				padding:2px;
-			}
-
-			#films > div {
-				padding:5px;
-				min-height:40px;
-				margin-bottom:5px;
-				border:1px solid #E77D2C;
-				-moz-border-radius: 5px; 
-				-webkit-border-radius: 5px;
-				border-radius: 5px;
-				position:relative; /* required to place #pic to right */
-			}
-
-			#films h3 {
-				font-family:georgia;
-				padding:5px;
-				color:#fff;
-				background:#E77D2C;
-				margin:0;
-			}
-
-			.pic{
-				position:absolute;
-				right:10px;
-				top:10px;
-			}
 		</style>
+		<link rel="stylesheet" href="css/bond.css"/>
 		<script src="https://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
 
 		<script type="text/javascript">
@@ -46,10 +16,10 @@
 				}
 				else { // server is HTML only - simulate web service
 					if(cat == "box") { // box office
-						url = "data/disney-box-office.js";
+						url = "data/bond-box-office.js";
 					}
 					else { // year
-						url = "data/disney-year.js"; 
+						url = "data/bond-year.js"; 
 					}
 				}
 				return url;
@@ -60,41 +30,37 @@
 					e.preventDefault(); // stop default action of the link
 					cat = $(this).attr("href");  // get category from URL
 					loadAJAX(cat);  // load AJAX and parse JSON file
+
 				});
 			});	
 
 
 			function loadAJAX(cat) {
-				/* url can be run on a server running PHP or
+                alert(cat);
+                return;
+				/* rl can be run on a server running PHP or
 					use the a standard HTML server
 					Indicate below if server is PHP or HTML
 					let url = serverSetup("php",cat); //setup to run against PHP server
 					let url = serverSetup("html",cat); //setup to run against HTML server
 				*/
-				
+
 				let url = serverSetup("html",cat);
-				
+
 				$.ajax({
-
-					type:"GET",
-					dataType:"json",
-					url:url,
-					success:disneyJSON,
-
-					error: function(xhr, status, error){
-					var errorMessage = xhr.status + ': ' + xhr.statusText
-					alert('Error - ' + errorMessage);
-					}
-                });
-		
+					type: "GET",
+					dataType: "json",
+					url: url,
+					success: bondJSON
+				});
 			}
-			
+
 			function toConsole(data) {
 				// return data to console for JSON examination
 				console.log(data); // to view,use Chrome console, ctrl + shift + j
 			}
 
-			function disneyJSON(data) {
+			function bondJSON(data) {
 				// JSON processing data goes here
 				// toConsole(data);
 				// $("#output").text(JSON.stringify(data));
@@ -103,7 +69,7 @@
 				$("#films").html("");
 
 				// write web service title
-				$("#disney").html(data.title);
+				$("#filmtitle").html(data.title);
 
 				$.each(data.films, function(i, item){
 					let text = `
@@ -114,25 +80,25 @@
 						<br/>
 						<b>Year</b>: ${item.Year}
 						<br/>
-						<b>Disney</b>: ${item.Princess }
+						<b>Bond</b>: ${item.Bond}
 						<br/>
 						<b>Box Office</b>: ${item.BoxOffice}
 						<br/>
 						<b>Writers</b>: ${item.Writers}
-						<div class = "pic"><img src="images/${item.Image}"/></div>
+						<div class = "pic"><img src="thumbnails/${item.Image}"/></div>
 					</div>`;
-					
-					//$(<div></div>).html(text).appendTo("#disney");
+
+					$("#films").append(text);
 				});
 			}
 		</script>
 	</head>
-	
+
 	<body>
-		<h1>Disney Movies Web Service</h1>
-		<a href="year" class="category">Disney Films By Year</a><br />
-		<a href="box" class="category">Disney Films By International Box Office Totals</a>
-		<h3 id="disney">Disney movies</h3>
+		<h1>Bond Web Service</h1>
+		<a href="year" class="category">Bond Films By Year</a><br />
+		<a href="box" class="category">Bond Films By International Box Office Totals</a>
+		<h3 id="filmtitle">Title Will Go Here</h3>
 		<div id="films">
 			Results go here
 		</div>
