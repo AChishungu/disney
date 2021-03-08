@@ -14,7 +14,7 @@
 			"Princess":"Rapunzel",
 			"Budget": "$260 million[",
 			"BoxOffice": "$592.4 million",
-			"Image": "rapunzal.jpg"
+			"Image": "rapunzel.jpg"
 			},
 			{
 			"Film":9,
