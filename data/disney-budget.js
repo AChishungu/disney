@@ -1,5 +1,5 @@
 {
-	"title": "Disney Films by Box Office Totals",
+	"title": "Disney Films by Budget",
 	
 	"films":[
              
@@ -40,7 +40,7 @@
 			"Princess":"Mulan",
 			"Budget":"$90 million",
 			"BoxOffice":"$304.3 million",
-			"Image":"Mulan.jpg"
+			"Image": "Mulan.jpg"
 			},
 			{
 			"Film":7,
