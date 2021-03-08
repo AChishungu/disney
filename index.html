@@ -104,7 +104,7 @@
 				$("#films").html("");
 
 				// write web service title
-				$("#filmtitle").html(data.title);
+				$("#disney").html(data.title);
 
 				$.each(data.films, function(i, item){
 					let text = `
@@ -115,7 +115,7 @@
 						<br/>
 						<b>Year</b>: ${item.Year}
 						<br/>
-						<b>Disney</b>: ${item.princess }
+						<b>Disney</b>: ${item.Princess }
 						<br/>
 						<b>Box Office</b>: ${item.BoxOffice}
 						<br/>
@@ -123,7 +123,7 @@
 						<div class = "pic"><img src="images/${item.Image}"/></div>
 					</div>`;
 					
-					$("#films").append(text);
+					$("#films").html.appendTo(#disney);
 				});
 			}
 		</script>
@@ -133,7 +133,7 @@
 		<h1>Disney Movies Web Service</h1>
 		<a href="year" class="category">Disney Films By Year</a><br />
 		<a href="box" class="category">Disney Films By International Box Office Totals</a>
-		<h3 id="filmtitle">Title Will Go Here</h3>
+		<h3 id="disney">Disney movies</h3>
 		<div id="films">
 			Results go here
 		</div>
